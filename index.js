@@ -3,6 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose';
 
+require ("dotenv").config();
+
 import user from './routes/auth'
 import profiles from './routes/profile';
 import paymentRoute from './routes/payment';
@@ -34,6 +36,6 @@ app.use('/', user)
 app.use('/', profiles);
 app.use('/',paymentRoute);
 
-app.listen(7000,()=>{
+app.listen(process.env.PORT || 7000,()=>{
     console.log("server is running in the port 7000");
 })
